@@ -1,0 +1,16 @@
+controller:
+  service:
+    annotations:
+      service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    # Using NLB instead of CLB
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+# Enable for metrics if needed
+metrics:
+  enabled: true

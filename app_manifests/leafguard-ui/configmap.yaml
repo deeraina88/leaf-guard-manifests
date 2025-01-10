@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: leafguard-ui-cfg
+  namespace: dev
+data:
+  api_url: http://a62dc33c20f3b49e096bd23345ec23f1-ec224686ec97eb33.elb.ap-south-1.amazonaws.com/api 

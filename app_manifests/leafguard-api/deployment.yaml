@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leafguard-api
+  labels:
+    app: leafguard-api
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: leafguard-api
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: leafguard-api
+    spec:
+      containers:
+      - image: 287559100945.dkr.ecr.ap-south-1.amazonaws.com/aimlops-leafguard-api:latest
+        env:
+        - name: GOOGLE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: leafguard-api-secret
+              key: google_api_key
+        imagePullPolicy: Always
+        name: leafguard-api
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            memory: "500Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+        
