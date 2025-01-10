@@ -28,6 +28,11 @@ spec:
             secretKeyRef:
               name: leafguard-api-secret
               key: google_api_key
+        - name: AWS_DEFAULT_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: leafguard-api-cfg
+              key: aws_default_region
         imagePullPolicy: Always
         name: leafguard-api
         ports:

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: leafguard-api-cfg
+  namespace: dev
+data:
+  aws_default_region: ap-south-1
