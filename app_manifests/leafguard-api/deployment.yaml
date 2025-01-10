@@ -17,6 +17,8 @@ spec:
     type: RollingUpdate
   template:
     metadata:
+      annotations:
+        eks.amazonaws.com/role-arn: arn:aws:iam::287559100945:role/aimlops-leafguard-eks-node-group-iam
       labels:
         app: leafguard-api
     spec:
