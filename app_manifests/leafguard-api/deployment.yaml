@@ -6,7 +6,7 @@ metadata:
     app: leafguard-api
   namespace: dev
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: leafguard-api
